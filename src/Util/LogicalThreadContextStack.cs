@@ -16,7 +16,8 @@
 // limitations under the License.
 //
 #endregion
-
+//Compact Framework don't have a Stack Class
+#if !NETCF
 using System;
 using System.Collections;
 
@@ -425,3 +426,4 @@ namespace log4net.Util
 
 	}
 }
+#endif

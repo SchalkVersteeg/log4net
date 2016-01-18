@@ -225,7 +225,7 @@ namespace log4net.Util
 			{
 #if NETCF_1_0
 				return System.Threading.Thread.CurrentThread.GetHashCode();
-#elif NET_2_0 || NETCF_2_0 || MONO_2_0 || MONO_3_5 || MONO_4_0
+#elif NET_2_0 || NETCF_2_0 || MONO_2_0 || MONO_3_5 || MONO_4_0 || NETCF
 				return System.Threading.Thread.CurrentThread.ManagedThreadId;
 #else
 				return AppDomain.GetCurrentThreadId();
@@ -782,7 +782,7 @@ namespace log4net.Util
 		{
 #if NETCF_1_0
 			return new ArgumentOutOfRangeException(message + " [param=" + parameterName + "] [value=" + actualValue + "]");
-#elif NETCF_2_0
+#elif NETCF_2_0 || NETCF
 			return new ArgumentOutOfRangeException(parameterName, message + " [value=" + actualValue + "]");
 #else
 			return new ArgumentOutOfRangeException(parameterName, actualValue, message);

@@ -17,7 +17,7 @@
 //
 #endregion
 
-// .NET Compact Framework 1.0 has no support for System.Runtime.Remoting.Messaging.CallContext
+// .NET Compact Framework has no support for System.Runtime.Remoting.Messaging.CallContext
 #if !NETCF
 
 using System;

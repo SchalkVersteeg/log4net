@@ -29,6 +29,11 @@ using log4net.Appender;
 using log4net.Util;
 using log4net.Repository;
 
+//Use OpenNetCF for Configure and watch ability
+#if NETCF 
+using OpenNETCF.IO;
+#endif
+
 namespace log4net.Config
 {
 	/// <summary>
@@ -785,7 +790,7 @@ namespace log4net.Config
 
 		#region ConfigureAndWatch static methods
 
-#if (!NETCF && !SSCLI)
+#if (!NETCF_1_0 && !SSCLI)
 
 		/// <summary>
 		/// Configures log4net using the file specified, monitors the file for changes 
@@ -906,7 +911,7 @@ namespace log4net.Config
 
 		#region ConfigureAndWatchHandler
 
-#if (!NETCF && !SSCLI)
+#if (!NETCF_1_0 && !SSCLI)
 		/// <summary>
 		/// Class used to watch config files.
 		/// </summary>

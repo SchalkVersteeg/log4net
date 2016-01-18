@@ -1149,8 +1149,11 @@ namespace log4net.Appender
 			}
 
 			// initialize the mutex that is used to lock rolling
+#if NETCF
+			m_mutexForRolling = new OpenNETCF.Threading.NamedMutex(false, m_baseFileName.Replace("\\", "_").Replace(":", "_").Replace("/", "_"));
+#else
 			m_mutexForRolling = new Mutex(false, m_baseFileName.Replace("\\", "_").Replace(":", "_").Replace("/", "_"));
-
+#endif		
 			if (m_rollDate && File != null && m_scheduledFilename == null)
 			{
                 m_scheduledFilename = CombinePath(File, m_now.ToString(m_datePattern, System.Globalization.DateTimeFormatInfo.InvariantInfo));
@@ -1680,7 +1683,12 @@ namespace log4net.Appender
 		/// <summary>
 		/// A mutex that is used to lock rolling of files.
 		/// </summary>
+#if NETCF
+			private OpenNETCF.Threading.NamedMutex m_mutexForRolling;
+#else
 		private Mutex m_mutexForRolling;
+#endif
+
   
 		#endregion Private Instance Fields
 

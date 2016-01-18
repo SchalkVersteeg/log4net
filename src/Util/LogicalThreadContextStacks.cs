@@ -19,7 +19,8 @@
 
 using System;
 using System.Collections;
-
+//Compact Framework does not have a Stack class
+#if !NETCF
 namespace log4net.Util
 {
 	/// <summary>
@@ -139,3 +140,4 @@ namespace log4net.Util
 	}
 }
 
+#endif

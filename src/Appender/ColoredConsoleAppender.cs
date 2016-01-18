@@ -19,7 +19,7 @@
 
 // MONO 1.0 Beta mcs does not like #if !A && !B && !C syntax
 
-// .NET Compact Framework 1.0 has no support for Win32 Console API's
+// .NET Compact Framework  has no support for Win32 Console API's
 #if !NETCF 
 // .Mono 1.0 has no support for Win32 Console API's
 #if !MONO 
